@@ -1,0 +1,28 @@
+#install packages
+
+$ npm install @react-navigation/native
+$ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+$ npm install @react-navigation/stack
+
+
+# stack navigation
+
+- surroudn navigator with navigationcontainer
+
+- props
+-- initialRouteName : inital page
+-- mode : mode of changing naviagtion 
+-- headerMode : animation of header
+-- headershown : header showing true or not
+-- headerbacktitle : header of previous page
+--headerTintColor : header font color
+
+-- screenoptions -> to change on all screens
+-- option -> to change only one screen
+
+
+- install styled components
+npm i styled-components
+
+- install appearance
+expo install react-native-appearance
