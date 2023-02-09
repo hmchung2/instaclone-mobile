@@ -1,18 +1,35 @@
 __DEV__ = true;
-import AppLoading from "expo-app-loading";
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
-import { StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import LoggedOutNav from "./navigators/LoggedOutNav";
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
-  const onFinish = () => setLoading(false);
-  const preload = () => {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await startLoading();
+        // await new Promise((resolve) => setTimeout(resolve, 2000));
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        // Tell the application to render
+        setReady(true);
+      }
+    }
+
+    prepare();
+  }, []);
+
+  const startLoading = () => {
     const fontsToLoad = [Ionicons.font];
     const fontPromises = fontsToLoad.map((font) => Font.loadAsync(font));
     const imagesToLoad = [
@@ -22,27 +39,21 @@ export default function App() {
     const imagePromises = imagesToLoad.map((image) => Asset.loadAsync(image));
     return Promise.all([...fontPromises, ...imagePromises]);
   };
-  if (loading) {
-    return (
-      <AppLoading
-        startAsync={preload}
-        onError={console.warn}
-        onFinish={onFinish}
-      />
-    );
+
+  const onLayoutRootView = useCallback(async () => {
+    if (ready) {
+      await SplashScreen.hideAsync();
+    }
+  }, [ready]);
+
+  if (!ready) {
+    return null;
   }
   return (
-    <NavigationContainer>
-      <LoggedOutNav />
-    </NavigationContainer>
+    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      <NavigationContainer>
+        <LoggedOutNav />
+      </NavigationContainer>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
