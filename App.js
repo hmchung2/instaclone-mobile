@@ -8,8 +8,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import LoggedOutNav from "./navigators/LoggedOutNav";
 import * as SplashScreen from "expo-splash-screen";
 import { ApolloProvider, useReactiveVar } from "@apollo/client";
-import client, { isLoggedInVar } from "./apollo";
+import client, { isLoggedInVar, tokenVar } from "./apollo";
 import LoggedInNav from "./navigators/LoggedInNav";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 SplashScreen.preventAutoHideAsync();
 const MyTheme = {
@@ -24,18 +25,32 @@ export default function App() {
   useEffect(() => {
     async function prepare() {
       try {
-        await startLoading();
+        await preload();
         // await new Promise((resolve) => setTimeout(resolve, 2000));
       } catch (e) {
         console.warn(e);
       } finally {
         // Tell the application to render
         setReady(true);
+
+        /// temp !!!!  ///
+        isLoggedInVar(false);
+        tokenVar("");
+        //////////////////
       }
     }
 
     prepare();
   }, []);
+
+  const preload = async () => {
+    const token = await AsyncStorage.getItem("token");
+    if (token) {
+      isLoggedInVar(true);
+      tokenVar(token);
+    }
+    return startLoading();
+  };
 
   const startLoading = () => {
     const fontsToLoad = [Ionicons.font];
