@@ -3,3 +3,9 @@
 - give reference to element
 -- you can use java script element function
  nextOne?.current?.focus();
+
+# React Hook from
+- install
+npm install react-hook-form
+
+
