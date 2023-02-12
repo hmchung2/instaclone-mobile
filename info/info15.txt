@@ -8,4 +8,17 @@
 - install
 npm install react-hook-form
 
+# apollo client
+npm install @apollo/cient graphql
 
+- install ngrok
+allow phone emulator to connect apollo
+-- command
+ ngrok http 4000
+
+- use local turnel
+npx localtunnel --port 4000
+
+#Tab Navigator
+- install
+npm install @react-navigation/bottom-tabs
