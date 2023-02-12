@@ -9,7 +9,11 @@ import LoggedOutNav from "./navigators/LoggedOutNav";
 import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();
-
+const MyTheme = {
+  colors: {
+    background: "black",
+  },
+};
 export default function App() {
   const [ready, setReady] = useState(false);
 
@@ -51,7 +55,7 @@ export default function App() {
   }
   return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      <NavigationContainer>
+      <NavigationContainer theme={MyTheme}>
         <LoggedOutNav />
       </NavigationContainer>
     </View>

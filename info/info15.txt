@@ -1,0 +1,5 @@
+# useRef
+
+- give reference to element
+-- you can use java script element function
+ nextOne?.current?.focus();

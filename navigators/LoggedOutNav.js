@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Welcome from "../screens/Welcome";
 import LogIn from "../screens/LogIn";
 import CreateAccount from "../screens/CreateAccount";
+import { View } from "react-native";
 
 const Stack = createStackNavigator();
 
