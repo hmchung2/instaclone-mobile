@@ -22,3 +22,10 @@ npx localtunnel --port 4000
 #Tab Navigator
 - install
 npm install @react-navigation/bottom-tabs
+
+#async Storage (login token)
+- similar as localstorage
+
+- install
+expo install @react-native-async-storage/async-storage
+
