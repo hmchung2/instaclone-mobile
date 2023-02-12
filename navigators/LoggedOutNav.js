@@ -3,7 +3,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Welcome from "../screens/Welcome";
 import LogIn from "../screens/LogIn";
 import CreateAccount from "../screens/CreateAccount";
-import { View } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -12,6 +11,9 @@ export default function LoggedOutNav() {
     <Stack.Navigator
       screenOptions={{
         headerBackTitleVisible: false,
+        headerTitle: false,
+        headerTransparent: true,
+        headerTintColor: "white",
       }}
     >
       <Stack.Screen
@@ -22,15 +24,7 @@ export default function LoggedOutNav() {
         component={Welcome}
       />
       <Stack.Screen name="LogIn" component={LogIn} />
-      <Stack.Screen
-        options={{
-          headerTitle: false,
-          headerTransparent: true,
-          headerTintColor: "white",
-        }}
-        name="CreateAccount"
-        component={CreateAccount}
-      />
+      <Stack.Screen name="CreateAccount" component={CreateAccount} />
     </Stack.Navigator>
   );
 }
