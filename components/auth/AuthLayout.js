@@ -25,7 +25,7 @@ const Logo = styled.Image`
 
 export default function AuthLayout({ children }) {
   const dismissKeyboard = () => {
-    // Keyboard.dismiss();
+    Keyboard.dismiss();
   };
   return (
     <TouchableWithoutFeedback
