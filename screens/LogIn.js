@@ -18,6 +18,7 @@ const LOGIN_MUTATION = gql`
 `;
 
 export default function Login({ route: { params } }) {
+  // navigation also gets route param
   const { register, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
       password: params?.password,
