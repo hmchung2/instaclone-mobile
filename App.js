@@ -34,8 +34,8 @@ export default function App() {
         setReady(true);
 
         /// temp !!!!  ///
-        isLoggedInVar(false);
-        tokenVar("");
+        // isLoggedInVar(false);
+        // tokenVar("");
         //////////////////
       }
     }

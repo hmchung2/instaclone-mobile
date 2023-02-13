@@ -1,0 +1,21 @@
+# tabnavigator
+
+-tabstyle is style for each tab.
+-ScreenOptions is for all tabs
+
+
+<Tabs.Navigator
+    screenOptions={{
+    headerShown: false,
+    tabBarShowLabel: false,
+    tabBarStyle: {
+        backgroundColor: "black",
+        borderTopColor: "rgba(255,255,255,0.5)",
+    },
+    tabBarActiveTintColor: "white",
+    tabBarInactiveTintColor: "grey",
+    }}
+>
+
+# stacknavigator in tabnavigator
+
