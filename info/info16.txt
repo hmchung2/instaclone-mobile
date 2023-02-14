@@ -28,5 +28,56 @@
 # flatList
 - performance good
 
+- infinite scroll
+-- get fetchmore from query
+-- from backend set set take with a number and skip with offset param
+-- attributes
+onEndReachedThreshold={0.05}
+onEndReached={() => {
+console.log("fetching more");
+return fetchMore({
+variables: {
+    offset: data?.seeFeed?.length,
+},
+});
+}}
+
+-- set typepolicies in cache of apollo client
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          seeFeed: offsetLimitPagination(),
+        },
+      },
+    },
+  }),
 
 
+# cache persistance
+- store data into cache so you do not have to load everytime
+
+- install
+npm i apollo3-cache-persist
+
+- export cache
+export const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        seeFeed: offsetLimitPagination(),
+      },
+    },
+  },
+});
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache,
+});
+
+
+- put the cache into storage in App.js
+await persistCache({
+    cache,
+    storage: new AsyncStorageWrapper(AsyncStorage),
+});

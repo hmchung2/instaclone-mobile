@@ -47,7 +47,6 @@ export default function Feed() {
         onEndReachedThreshold={0.05}
         onEndReached={() => {
           console.log("fetching more");
-          console.log("data?.seeFeed?.length : " + data?.seeFeed?.length);
           return fetchMore({
             variables: {
               offset: data?.seeFeed?.length,

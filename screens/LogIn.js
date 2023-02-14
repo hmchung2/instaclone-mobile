@@ -57,6 +57,7 @@ export default function Login({ route: { params } }) {
       required: true,
     });
   }, [register]);
+
   return (
     <AuthLayout>
       <TextInput
