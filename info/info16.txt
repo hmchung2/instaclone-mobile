@@ -18,4 +18,13 @@
 >
 
 # stacknavigator in tabnavigator
+- use children in tab navigator <>
+
+# flatList
+- performance good
+
+# ScrollView
+- scroll up and down
+- just rendering all of them which may be bad performance
+
 

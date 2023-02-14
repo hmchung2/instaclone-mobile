@@ -17,6 +17,7 @@ export default function SharedStackNav({ screenName }) {
         headerMode: "screen",
         headerBackTitleVisible: false,
         headerTintColor: "white",
+        headerTitleAlign: "center",
         headerStyle: {
           borderBottomColor: "rgba(255, 255, 255, 0.3)",
           shadowColor: "rgba(255, 255, 255, 0.3)",
