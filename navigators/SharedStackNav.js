@@ -1,12 +1,12 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Photo from "../screens/Photo";
 import Profile from "../screens/Profile";
 import Feed from "../screens/Feed";
 import Search from "../screens/Search";
 import Notifications from "../screens/Notifications";
 import Me from "../screens/Me";
 import { Image } from "react-native";
+import Photo from "../components/Photo";
 
 const Stack = createStackNavigator();
 
