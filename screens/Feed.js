@@ -11,6 +11,7 @@ const FEED_QUERY = gql`
     seeFeed(offset: $offset) {
       ...PhotoFragment
       user {
+        id
         username
         avatar
       }
@@ -44,15 +45,14 @@ export default function Feed() {
   return (
     <ScreenLayout loading={loading}>
       <FlatList
-        onEndReachedThreshold={0.05}
-        onEndReached={() => {
-          console.log("fetching more");
-          return fetchMore({
+        onEndReachedThreshold={0.02}
+        onEndReached={() =>
+          fetchMore({
             variables: {
               offset: data?.seeFeed?.length,
             },
-          });
-        }}
+          })
+        }
         refreshing={refreshing}
         onRefresh={refresh}
         style={{ width: "100%" }}
