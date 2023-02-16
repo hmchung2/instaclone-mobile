@@ -13,3 +13,8 @@
 # installing many packages for stack navigators
 npm install @react-navigation/material-top-tabs react-native-tab-view
 npm install react-native-pager-view
+
+
+# Media Library
+
+expo install expo-media-library
