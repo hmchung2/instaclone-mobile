@@ -17,6 +17,7 @@ SplashScreen.preventAutoHideAsync();
 const MyTheme = {
   colors: {
     background: "black",
+    text: "white",
   },
 };
 export default function App() {

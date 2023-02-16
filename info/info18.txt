@@ -1,0 +1,11 @@
+# stack navigator listener
+
+- event listening and prevent default operation
+<Tabs.Screen
+        name="TabCamera"
+        component={View}
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault();
+          },
+        }}...
