@@ -18,3 +18,7 @@ npm install react-native-pager-view
 # Media Library
 
 expo install expo-media-library
+
+
+# expo-camera
+expo install expo-camera
