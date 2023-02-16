@@ -11,7 +11,7 @@ import UploadNav from "./UploadNav";
 const Stack = createStackNavigator();
 
 const TransitionScreenOptions = {
-  ...TransitionPresets.SlideFromRightIOS, // This is where the transition happens
+  ...TransitionPresets.ModalSlideFromBottomIOS, // This is where the transition happens
   gestureEnabled: true,
   headerShown: false,
 };
