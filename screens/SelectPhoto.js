@@ -43,12 +43,15 @@ const IconContainer = styled.View`
 export default function SelectPhoto({ navigation }) {
   const [ok, setOk] = useState(false);
   const [photos, setPhotos] = useState([]);
+
   const [chosenPhoto, setChosenPhoto] = useState("");
+
   const getPhotos = async () => {
     const { assets: photos } = await MediaLibrary.getAssetsAsync();
     setPhotos(photos);
     setChosenPhoto(photos[0]?.uri);
   };
+
   const getPermissions = async () => {
     const { accessPrivileges, canAskAgain } =
       await MediaLibrary.getPermissionsAsync();
@@ -77,20 +80,25 @@ export default function SelectPhoto({ navigation }) {
       <HeaderRightText>Next</HeaderRightText>
     </TouchableOpacity>
   );
+
   useEffect(() => {
     getPermissions();
   }, []);
+
   useEffect(() => {
     navigation.setOptions({
       headerRight: HeaderRight,
     });
-  }, []);
+  }, [chosenPhoto]);
 
   const numColumns = 4;
+
   const { width } = useWindowDimensions();
+
   const choosePhoto = (uri) => {
     setChosenPhoto(uri);
   };
+
   const renderItem = ({ item: photo }) => (
     <ImageContainer onPress={() => choosePhoto(photo.uri)}>
       <Image
