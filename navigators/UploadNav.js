@@ -23,30 +23,15 @@ export default function UploadNav() {
         },
       }}
     >
-      <Tab.Screen
-        name="TabSelect"
-        listeners={({ navigation }) => {
-          return {
-            tabPress: async (e) => {
-              e.preventDefault();
-              await navigation.navigate("Tabs", { screen: "TabCamera" });
-              navigation.navigate("Upload", {
-                screen: "TabSelect",
-              });
-            },
-          };
-        }}
-      >
+      <Tab.Screen name="TabSelect">
         {() => (
           <Stack.Navigator
             screenOptions={{
-              headerTitleAlign: "center",
               headerTintColor: "white",
               headerBackTitleVisible: false,
               headerBackImage: ({ tintColor }) => (
                 <Ionicons color={tintColor} name="close" size={28} />
               ),
-
               headerStyle: {
                 backgroundColor: "black",
                 shadowOpacity: 0.3,

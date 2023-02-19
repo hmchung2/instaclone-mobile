@@ -14,7 +14,6 @@ const Stack = createStackNavigator();
 const TransitionScreenOptions = {
   ...TransitionPresets.ModalSlideFromBottomIOS, // This is where the transition happens
   gestureEnabled: true,
-  headerShown: false,
 };
 
 export default function LoggedInNav() {
@@ -35,6 +34,8 @@ export default function LoggedInNav() {
       <Stack.Screen
         name="UploadForm"
         options={{
+          headerShown: true,
+          headerTitleAlign: "center",
           headerBackTitleVisible: false,
           headerBackImage: ({ tintColor }) => (
             <Ionicons color={tintColor} name="close" size={28} />

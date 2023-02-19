@@ -25,3 +25,7 @@ expo install expo-camera
 
 #install slider
 expo install @react-native-community/slider
+
+#install apollo client
+
+npm i apollo-upload-client

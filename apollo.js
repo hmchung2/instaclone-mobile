@@ -7,7 +7,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { offsetLimitPagination } from "@apollo/client/utilities";
-
+import { onError } from "@apollo/client/link/error";
 export const isLoggedInVar = makeVar(false);
 export const tokenVar = makeVar("");
 
@@ -24,6 +24,15 @@ export const logUserOut = async () => {
   isLoggedInVar(false);
   tokenVar(null);
 };
+
+const onErrorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    console.log(`GraphQL Error`, graphQLErrors);
+  }
+  if (networkError) {
+    console.log("Network Error", networkError);
+  }
+});
 
 const httpLink = createHttpLink({
   uri: "https://1f0a-116-47-117-210.jp.ngrok.io/graphql",
@@ -49,7 +58,7 @@ export const cache = new InMemoryCache({
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: authLink.concat(onErrorLink).concat(httpLink),
   cache,
 });
 export default client;
