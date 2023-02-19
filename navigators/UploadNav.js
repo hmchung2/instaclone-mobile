@@ -23,7 +23,20 @@ export default function UploadNav() {
         },
       }}
     >
-      <Tab.Screen name="TabSelect">
+      <Tab.Screen
+        name="TabSelect"
+        listeners={({ navigation }) => {
+          return {
+            tabPress: async (e) => {
+              e.preventDefault();
+              await navigation.navigate("Tabs", { screen: "TabCamera" });
+              navigation.navigate("Upload", {
+                screen: "TabSelect",
+              });
+            },
+          };
+        }}
+      >
         {() => (
           <Stack.Navigator
             screenOptions={{

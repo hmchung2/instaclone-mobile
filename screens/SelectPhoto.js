@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   useWindowDimensions,
+  StatusBar,
 } from "react-native";
 import { colors } from "../colors";
 
@@ -101,6 +102,7 @@ export default function SelectPhoto({ navigation }) {
   );
   return (
     <Container>
+      <StatusBar />
       <Top>
         {chosenPhoto !== "" ? (
           <Image

@@ -22,3 +22,6 @@ expo install expo-media-library
 
 # expo-camera
 expo install expo-camera
+
+#install slider
+expo install @react-native-community/slider
