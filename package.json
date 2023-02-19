@@ -45,7 +45,8 @@
     "@react-native-community/slider": "4.2.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "expo-module-scripts": "^3.0.4"
   },
   "private": true
 }
