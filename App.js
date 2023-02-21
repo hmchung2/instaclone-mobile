@@ -36,6 +36,7 @@ export default function App() {
         setReady(true);
 
         /// temp !!!!  ///
+        // console.log("pk");
         // isLoggedInVar(false);
         // tokenVar("");
         //////////////////

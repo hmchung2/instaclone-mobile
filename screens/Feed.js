@@ -73,7 +73,7 @@ export default function Feed({ navigation }) {
         style={{ width: "100%" }}
         showsVerticalScrollIndicator={false}
         data={data?.seeFeed}
-        keyExtractor={(photo) => "" + photo.id}
+        keyExtractor={(photo) => "" + photo?.id}
         renderItem={renderPhoto}
       />
     </ScreenLayout>
