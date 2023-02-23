@@ -52,5 +52,23 @@
     }
   };
 
+
+    const preload = async () => {
+    const token = await AsyncStorage.getItem("token");
+    if (token) {
+      isLoggedInVar(true);
+      tokenVar(token);
+    }
+    // await persistCache({
+    //   cache,
+    //   storage: new AsyncStorageWrapper(AsyncStorage),
+    // });
+    return startLoading();
+  };
+
   persist cache was the problem?
-  
+
+
+  -- install web socket
+
+  npm install @apollo/client subscriptions-transport-ws
