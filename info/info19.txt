@@ -1,0 +1,56 @@
+ const updateSendMessage = (cache, result) => {
+    const {
+      data: {
+        sendMessage: { ok, id },
+      },
+    } = result;
+    if (ok && meData) {
+      const { message } = getValues();
+      const messageObj = {
+        id,
+        payload: message,
+        user: {
+          username: meData.me.username,
+          avatar: meData.me.avatar,
+        },
+        read: true,
+        __typename: "Message",
+      };
+
+      // Update the cache for the seeRoom query
+      const roomId = `Room:${route.params.id}`;
+      const query = gql`
+        query SeeRoom($id: Int!) {
+          seeRoom(id: $id) {
+            messages {
+              id
+              payload
+              user {
+                username
+                avatar
+              }
+              read
+            }
+          }
+        }
+      `;
+      const data = cache.readQuery({
+        query,
+        variables: { id: route.params.id },
+      });
+      const messages = data.seeRoom.messages;
+      cache.writeQuery({
+        query,
+        variables: { id: route.params.id },
+        data: {
+          seeRoom: {
+            ...data.seeRoom,
+            messages: [...messages, messageObj],
+          },
+        },
+      });
+    }
+  };
+
+  persist cache was the problem?
+  
