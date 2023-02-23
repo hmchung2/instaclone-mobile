@@ -17,7 +17,9 @@ const SEE_ROOMS_QUERY = gql`
 `;
 
 export default function Rooms() {
-  const { data, loading } = useQuery(SEE_ROOMS_QUERY);
+  const { data, loading } = useQuery(SEE_ROOMS_QUERY, {
+    fetchPolicy: "network-only",
+  });
   const renderItem = ({ item: room }) => <RoomItem {...room} />;
   return (
     <ScreenLayout loading={loading}>

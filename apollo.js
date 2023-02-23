@@ -37,7 +37,7 @@ const onErrorLink = onError(({ graphQLErrors, networkError }) => {
 });
 
 const uploadHttpLink = createUploadLink({
-  uri: "https://68f6-221-143-244-19.jp.ngrok.io/graphql",
+  uri: "https://59d9-116-47-117-210.jp.ngrok.io/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {

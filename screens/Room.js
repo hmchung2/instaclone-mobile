@@ -64,6 +64,7 @@ const TextInput = styled.TextInput`
 export default function Room({ route, navigation }) {
   const { data: meData } = useMe();
   const { register, setValue, handleSubmit, getValues } = useForm();
+
   const updateSendMessage = (cache, result) => {
     const {
       data: {
@@ -82,30 +83,42 @@ export default function Room({ route, navigation }) {
         read: true,
         __typename: "Message",
       };
-      const messageFragment = cache.writeFragment({
-        fragment: gql`
-          fragment NewMessage on Message {
-            id
-            payload
-            user {
-              username
-              avatar
+
+      // Update the cache for the seeRoom query
+      const roomId = `Room:${route.params.id}`;
+      const query = gql`
+        query SeeRoom($id: Int!) {
+          seeRoom(id: $id) {
+            messages {
+              id
+              payload
+              user {
+                username
+                avatar
+              }
+              read
             }
-            read
           }
-        `,
-        data: messageObj,
+        }
+      `;
+      const data = cache.readQuery({
+        query,
+        variables: { id: route.params.id },
       });
-      cache.modify({
-        id: `Room:${route.params.id}`,
-        fields: {
-          messages(prev) {
-            return [messageFragment, ...prev];
+      const messages = data.seeRoom.messages;
+      cache.writeQuery({
+        query,
+        variables: { id: route.params.id },
+        data: {
+          seeRoom: {
+            ...data.seeRoom,
+            messages: [messageObj, ...messages],
           },
         },
       });
     }
   };
+
   const [sendMessageMutation, { loading: sendingMessage }] = useMutation(
     SEND_MESSAGE_MUTATION,
     {
