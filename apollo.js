@@ -33,16 +33,15 @@ export const logUserOut = async () => {
 };
 
 const uploadHttpLink = createUploadLink({
-  uri: "http://localhost:4000/graphql",
+  uri: "http://192.168.0.7:4000/graphql",
 });
 
 const wsLink = new WebSocketLink({
-  uri: "ws://localhost:4000/graphql",
+  uri: "ws://192.168.0.7:4000/graphql",
   options: {
-    reconnect: true,
-    connectionParams: {
+    connectionParams: () => ({
       token: tokenVar(),
-    },
+    }),
   },
 });
 

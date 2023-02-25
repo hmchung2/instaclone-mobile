@@ -37,8 +37,8 @@ export default function App() {
 
         /// temp !!!!  ///
         // console.log("pk");
-        // isLoggedInVar(false);
-        // tokenVar("");
+        isLoggedInVar(false);
+        tokenVar("");
         //////////////////
       }
     }
