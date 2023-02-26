@@ -31,3 +31,13 @@
 expo publish
 
 expo publsh will make all the codes to expo server
+
+so only first time you build but after that you keep expo publish
+
+(OAU - over the air updates)
+
+# pubslishing
+
+-release channel specify
+
+-if you change any in ios android app.json app-loading , you have to build again
