@@ -1,4 +1,3 @@
-__DEV__ = true;
 import React, { useCallback, useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";

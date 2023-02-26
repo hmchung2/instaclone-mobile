@@ -22,7 +22,9 @@
       "infoPlist": {
         "NSPhotoLibraryUsageDescription": "Allow $(PRODUCT_NAME) to access your photos",
         "NSPhotoLibraryAddUsageDescription": "Allow $(PRODUCT_NAME) to save photos"
-      }
+      },
+      "bundleIdentifier": "co.nomadcoders.instaclonehmchungappl1ation",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
@@ -31,8 +33,12 @@
       },
       "permissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE"
-      ]
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "co.nomadcoders.instaclonehmchungappl1ation",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -40,6 +46,12 @@
     "plugins": [
       "expo-media-library",
       "expo-camera"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e108c43b-ceb7-4447-ad86-ac32ac63d1a2"
+      }
+    },
+    "owner": "hmchung2"
   }
 }

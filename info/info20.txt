@@ -1,0 +1,33 @@
+# deploy
+
+- configure app.json
+-- put unique name that application needs to have
+{
+  "expo": {
+    "name": "Your App Name",
+    "icon": "./path/to/your/app-icon.png",
+    "version": "1.0.0",
+    "slug": "your-app-slug",
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.yourappname",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.yourcompany.yourappname",
+      "versionCode": 1
+    }
+  }
+}
+
+
+- expo build:android
+- choose apk and go to project page
+
+- expo build:ios
+-- pay
+
+
+- from second time you do
+expo publish
+
+expo publsh will make all the codes to expo server
