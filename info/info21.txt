@@ -1,0 +1,4 @@
+# eject to react-native cli
+
+- command
+npm run eject

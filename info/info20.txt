@@ -41,3 +41,8 @@ so only first time you build but after that you keep expo publish
 -release channel specify
 
 -if you change any in ios android app.json app-loading , you have to build again
+
+npm install -g eas-cli
+eas login
+eas build:configure
+eas build -p android --profile preview
