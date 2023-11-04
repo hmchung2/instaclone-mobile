@@ -21,7 +21,7 @@
     "apollo-cache-persist": "^0.1.1",
     "apollo-upload-client": "^17.0.0",
     "apollo3-cache-persist": "^0.14.1",
-    "expo": "~46.0.0",
+    "expo": "^47.0.0",
     "expo-app-loading": "~2.1.0",
     "expo-asset": "~8.6.3",
     "expo-camera": "~12.5.0",
