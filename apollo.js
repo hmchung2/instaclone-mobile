@@ -33,11 +33,11 @@ export const logUserOut = async () => {
 };
 
 const uploadHttpLink = createUploadLink({
-  uri: "https://instaclone-backend-hm.herokuapp.com/graphql",
+  uri: "https://instaclone-backend-hm2-62daf2eb649e.herokuapp.com/graphql",
 });
 
 const wsLink = new WebSocketLink({
-  uri: "ws://instaclone-backend-hm.herokuapp.com/graphql",
+  uri: "ws://instaclone-backend-hm2-62daf2eb649e.herokuapp.com/graphql",
   options: {
     connectionParams: () => ({
       token: tokenVar(),
