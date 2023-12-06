@@ -1,4 +1,4 @@
-import { Camera } from "expo-camera";
+import { Camera } from "expo";
 import React, { useEffect, useState, useRef } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Alert, Image, StatusBar, Text, TouchableOpacity } from "react-native";
@@ -181,10 +181,10 @@ export default function TakePhoto({ navigation }) {
                     flashMode === Camera.Constants.FlashMode.off
                       ? "flash-off"
                       : flashMode === Camera.Constants.FlashMode.on
-                      ? "flash"
-                      : flashMode === Camera.Constants.FlashMode.auto
-                      ? "eye"
-                      : ""
+                        ? "flash"
+                        : flashMode === Camera.Constants.FlashMode.auto
+                          ? "eye"
+                          : ""
                   }
                 />
               </TouchableOpacity>

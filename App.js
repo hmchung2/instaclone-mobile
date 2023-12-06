@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import * as Font from "expo-font";
+import { Font } from "expo";
 import { Asset } from "expo-asset";
 import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
