@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { Font } from "expo";
+import * as Font from 'expo-font';
 import { Asset } from "expo-asset";
 import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -46,21 +46,27 @@ export default function App() {
   }, []);
 
   const preload = async () => {
-    const token = await AsyncStorage.getItem("token");
-    if (token) {
-      isLoggedInVar(true);
-      tokenVar(token);
+    try {
+      const token = await AsyncStorage.getItem("token");
+      if (token) {
+        isLoggedInVar(true);
+        tokenVar(token);
+      }
+      // await persistCache({
+      //   cache,
+      //   storage: new AsyncStorageWrapper(AsyncStorage),
+      // });
+      return startLoading();
+    } catch (error) {
+      throw new Error(error)
     }
-    // await persistCache({
-    //   cache,
-    //   storage: new AsyncStorageWrapper(AsyncStorage),
-    // });
-    return startLoading();
   };
 
   const startLoading = () => {
     const fontsToLoad = [Ionicons.font];
-    const fontPromises = fontsToLoad.map((font) => Font.loadAsync(font));
+    const fontPromises = fontsToLoad.map((font) => {
+      Font.loadAsync(font);
+    });
     const imagesToLoad = [
       require("./assets/logo.png"),
       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/840px-Instagram_logo.svg.png",
@@ -68,6 +74,8 @@ export default function App() {
     const imagePromises = imagesToLoad.map((image) => Asset.loadAsync(image));
     return Promise.all([...fontPromises, ...imagePromises]);
   };
+
+
 
   const onLayoutRootView = useCallback(async () => {
     if (ready) {
