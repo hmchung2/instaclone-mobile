@@ -13,7 +13,7 @@
 ## ⚡️ Tech Stack
 - **Frontend(Web/App)** : React, React Native, TypeScript, Apollo Client, Styled Components, Framer Motion  
 - **Backend** : Node.js, Express, Apollo Server, GraphQL, Prisma, PostgreSQL, JWT  
-- **Infra** : AWS S3, Netlify, Heroku  
+- **Infra** : AWS S3, Heroku  
 - **Mobile** : Expo, React Navigation  
 - **Etc** : GraphQL Code Generator, PubSub  
 
